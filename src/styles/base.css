@@ -205,24 +205,34 @@ footer {
     flex-direction: column;
     text-align: center;
   }
+
+  .navbar {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 800px) {
   .section {
     width: min(100% - 32px, 1200px);
   }
 
+  footer {
+    width: min(100% - 32px, 1200px);
+  }
+
   .navbar {
-    padding: 0 24px;
+    height: 72px;
   }
 
   .menu-btn {
     display: block;
+    padding: 0.5rem;
   }
 
   .nav-links {
     position: absolute;
-    top: 78px;
+    top: 71px;
     left: 16px;
     right: 16px;
     display: none;
@@ -238,4 +248,27 @@ footer {
   .nav-links.open { display: flex; }
   .nav-links a { padding: 0.35rem 0; }
   .nav-links .nav-cta { text-align: center; }
+}
+
+@media (max-width: 420px) {
+  .section,
+  footer {
+    width: min(100% - 24px, 1200px);
+  }
+
+  .navbar {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .nav-links {
+    left: 12px;
+    right: 12px;
+  }
+
+  .btn {
+    min-height: 3.1rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
 }

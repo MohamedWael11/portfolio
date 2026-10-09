@@ -53,6 +53,7 @@
 
 .hero-title-line {
   display: block;
+  white-space: nowrap;
 }
 
 .hero-title-line.accent-line {
@@ -404,8 +405,8 @@
 
 .about-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(120px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
   margin-top: 1.25rem;
 }
 
@@ -893,9 +894,12 @@
     min-height: 500px;
   }
 
-  .about-grid,
   .project-grid,
   .expertise-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-grid {
     grid-template-columns: 1fr;
   }
 
@@ -906,8 +910,29 @@
 }
 
 @media (max-width: 720px) {
+  .hero {
+    padding-top: 112px;
+    padding-bottom: 64px;
+  }
+
+  .hero-visual {
+    order: 0;
+    min-height: clamp(300px, 82vw, 420px);
+  }
+
+  .hero-visual::before {
+    width: min(90vw, 360px);
+    height: min(90vw, 360px);
+  }
+
   .hero-title {
-    font-size: clamp(4rem, 20vw, 7rem);
+    font-size: clamp(3.25rem, 17vw, 7rem);
+  }
+
+  .eyebrow {
+    gap: 0.55rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
   }
 
   .hero-role {
@@ -918,25 +943,134 @@
     letter-spacing: 0.08em;
   }
 
+  .scroll-indicator {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+  }
+
   .grid-orbit {
-    width: 380px;
-    height: 380px;
+    width: min(82vw, 380px);
+    height: min(82vw, 380px);
   }
 
   .profile-card {
-    width: min(360px, 90%);
+    width: min(360px, 100%);
   }
 
   .card-name {
     font-size: 1.7rem;
   }
 
+  .section-block {
+    padding-top: 88px;
+    padding-bottom: 48px;
+  }
+
+  .section-label {
+    margin-bottom: 1.2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+  }
+
+  .about h2,
+  .split-heading h2,
+  .contact-inner h2 {
+    font-size: clamp(2.6rem, 10vw, 4.5rem);
+  }
+
+  .about-stats {
+    gap: 0.5rem;
+  }
+
+  .about-stats div {
+    padding: 0.8rem 0.65rem;
+  }
+
+  .about-stats strong {
+    font-size: 1.1rem;
+  }
+
+  .about-stats span {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
+
+  .split-heading {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-grid,
+  .expertise-grid {
+    gap: 0.9rem;
+  }
+
+  .project-info h3,
+  .expertise-card h3 {
+    font-size: 1.5rem;
+  }
+
   .contact-inner {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 2rem 1rem 1.5rem;
   }
 
   .contact-form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-kicker {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+  }
+}
+
+@media (max-width: 520px) {
+  .project-grid,
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    gap: 0.7rem;
+  }
+
+  .hero-meta {
+    gap: 0.8rem;
+    font-size: 0.72rem;
+  }
+
+  .expertise-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: clamp(2.8rem, 17vw, 3.5rem);
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .contact-links {
+    gap: 0.6rem;
+  }
+
+  .contact-links a {
+    padding: 0.75rem 0.9rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-inner {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
   }
 }
